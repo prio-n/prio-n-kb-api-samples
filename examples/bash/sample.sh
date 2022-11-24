@@ -12,7 +12,7 @@ CLIENT_SECRET=YOUR_CLIENT_SECRET
 ACCESS_TOKEN=$(curl --request POST \
   --url "https://$PRIO_N_AUTH_DOMAIN/oauth/token" \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data "audience=beta-app-mtm&grant_type=client_credentials&client_id=$CLIENT_ID&client_secret=$CLIENT_SECRET" |\
+  --data "audience=https://api.prio-n.com&grant_type=client_credentials&client_id=$CLIENT_ID&client_secret=$CLIENT_SECRET" |\
   jq -r '.access_token')
 
 

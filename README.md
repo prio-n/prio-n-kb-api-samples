@@ -1,17 +1,30 @@
-# Using PRIOn KB API
+# PRIO<sup>n</sup> Knowledge Base
 
-## Authentication
+[PRIO<sup>n</sup> Knowledge Base](https://kb.prio-n.com) aggregates publicly disclosed vulnerabilities and provides additional context for faster vulnerability triage. PRIO<sup>n</sup>'s scoring algorithm crunches the data and produces a priority score.
 
-PRIOn KB API uses the client credentials flow. In order to use it you must register an account on [https://kb.prio-n.com](https://kb.prio-n.com). Registration is free. Sign-in to your account, click on your username and select `API Keys` to manage your keys. One API Key pair is allowed per registered user.
+Using Natural Language Processing (NLP) and 3rd party lookups, KB is able to:
+
+- Detect the vulnerability type.
+- Map vulnerabilities against the following security frameworks:
+  - OWASP
+  - MITRE ATT&CK
+  - MITRE CAPEC
+  - DISA STIG
+- Identify existence of public exploit code and exploitation activity.
+
+Visit [https://www.prio-n.com](https://www.prio-n.com) to learn more.
+## Using PRIO<sup>n</sup> KB API
 
 ## Limits
-PRIOn API requests are limited up to `100 req/day`.
+PRIO<sup>n</sup> API requests are limited up to `100 req/day`. Check out the `X-KB-API-QUOTA-LEFT` response header to see if you are within the daily limit before making subsequent requests.
 
 
 ## Authentication
-PRIOn KB API uses the client credentials flow to obtain a valid `access token` and access the API.
 
-For example:
+PRIO<sup>n</sup> KB API uses the client credentials flow. In order to use it you must register at [https://kb.prio-n.com](https://kb.prio-n.com). Registration is free. Sign-in to your account, click on your username and select `API Keys` to manage your keys. One API Key pair is allowed per registered user.
+
+To obtain a valid `access token` and access the API use you `client_id` and `client_secret` pair:
+
 
 ```bash
 curl --request POST \
@@ -31,7 +44,7 @@ The response will be similar to the one below:
 {"access_token":"<YOUR ACCESS TOKEN>","expires_in":86400,"token_type":"Bearer"}
 ```
 
-Then you can use the `access_token` to access the API:
+Use the `access_token` to access the API:
 
 ```sh
 curl -X 'GET' \
