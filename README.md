@@ -55,4 +55,4 @@ curl -X 'GET' \
 ```
 
 ## Samples
-Checkout the [examples]('examples/) directory for samples. 
+Checkout the [examples](examples/) directory for samples. 
